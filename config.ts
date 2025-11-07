@@ -1,4 +1,3 @@
-
 export enum Page {
   Home = 'Home',
   HowItWorks = 'How It Works',
@@ -49,6 +48,8 @@ export const WIZARD_SECTIONS = [
   'Photos & Media',
   'Habits & Patterns',
   'Platform Checks',
+  'Security Practices',
+  'Advanced Footprint',
 ];
 
 export const WIZARD_QUESTIONS: Question[] = [
@@ -89,6 +90,18 @@ export const WIZARD_QUESTIONS: Question[] = [
   { id: 'tiktokProfilePublic', type: QuestionType.Toggle, section: 'Platform Checks' },
   { id: 'xProfilePublic', type: QuestionType.Toggle, section: 'Platform Checks' },
   { id: 'linkedinProfilePublic', type: QuestionType.Toggle, section: 'Platform Checks' },
+
+  // Section 8: Security Practices
+  { id: 'passwordReuse', type: QuestionType.Toggle, section: 'Security Practices' },
+  { id: 'usePasswordManager', type: QuestionType.Toggle, section: 'Security Practices' },
+  { id: 'mfaEnabled', type: QuestionType.Toggle, section: 'Security Practices' },
+  { id: 'breachedEmailCheck', type: QuestionType.Toggle, section: 'Security Practices' },
+  { id: 'vpnUsage', type: QuestionType.Toggle, section: 'Security Practices' },
+
+  // Section 9: Advanced Footprint
+  { id: 'dataBrokerListing', type: QuestionType.Toggle, section: 'Advanced Footprint' },
+  { id: 'photoMetadataScrubbed', type: QuestionType.Toggle, section: 'Advanced Footprint' },
+  { id: 'publicWhois', type: QuestionType.Toggle, section: 'Advanced Footprint' },
 ];
 
 export enum RiskCategory {
@@ -99,6 +112,10 @@ export enum RiskCategory {
     Reputation = 'Harassment / Reputation',
     Fraud = 'Fraud / Identity Theft',
     PhysicalSecurity = 'Physical Security',
+    DataBreachExposure = 'Data Breach Exposure',
+    MetadataLeakage = 'Metadata Leakage',
+    AdvertisingTracking = 'Advertising & Tracking',
+    LegalRegistryExposure = 'Legal & Registry Exposure',
 }
 
 export type RiskLevel = 'Low' | 'Medium' | 'High' | 'Critical';
@@ -118,6 +135,5 @@ export interface Mitigation {
     title: string;
     description: string;
     category: 'Quick Wins' | 'High Impact' | 'Advanced';
-    triggers: string[];
+    triggers: (string | { id: string; value: Answer })[];
 }
-   

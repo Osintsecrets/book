@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AppContext } from '../../context/AppContext';
@@ -16,11 +15,12 @@ const ToggleInput: React.FC<{ questionId: string, value: Answer, onChange: (valu
     ];
 
     return (
-        <div className="flex bg-gray-800 rounded-full p-1">
+        <div className="flex bg-gray-800 rounded-full p-1" role="group" aria-labelledby={`q-${questionId}`}>
             {options.map(opt => (
                 <button
                     key={opt.label}
                     onClick={() => onChange(opt.value)}
+                    aria-pressed={value === opt.value}
                     className={`w-full rounded-full py-2 text-sm font-medium transition-colors ${
                         value === opt.value
                             ? 'bg-cyan-500 text-white'
@@ -45,7 +45,7 @@ const QuestionCard: React.FC<{ question: Question }> = ({ question }) => {
 
     return (
         <div className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-4 md:p-6 mb-4">
-            <p className="text-lg text-gray-200 mb-4">{t[question.id as keyof typeof t] || question.id}</p>
+            <p id={`q-${question.id}`} className="text-lg text-gray-200 mb-4">{t[question.id as keyof typeof t] || question.id}</p>
             {question.type === QuestionType.Toggle && (
                 <ToggleInput questionId={question.id} value={answer} onChange={setAnswer} />
             )}
@@ -138,4 +138,3 @@ const StartAudit: React.FC = () => {
 };
 
 export default StartAudit;
-   

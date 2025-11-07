@@ -1,4 +1,3 @@
-
 export const translations = {
   en: {
     // General
@@ -51,6 +50,16 @@ export const translations = {
     'audit.answer.no': 'No',
     'audit.answer.not_sure': 'Not Sure',
     'audit.context.title': "Why this matters",
+    // Audit Sections
+    'Identity & Contact': 'Identity & Contact',
+    'Location & Home': 'Location & Home',
+    'Work & Education': 'Work & Education',
+    'Social & Relationships': 'Social & Relationships',
+    'Photos & Media': 'Photos & Media',
+    'Habits & Patterns': 'Habits & Patterns',
+    'Platform Checks': 'Platform Checks',
+    'Security Practices': 'Security Practices',
+    'Advanced Footprint': 'Advanced Footprint',
     // Audit Questions
     'fullNamePublic': "Is your full, legal name easily found on public social media?",
     'emailPublic': "Is a personal email address public on any profile or website?",
@@ -76,6 +85,14 @@ export const translations = {
     'tiktokProfilePublic': "Is your TikTok profile public?",
     'xProfilePublic': "Is your X (Twitter) profile public?",
     'linkedinProfilePublic': "Is your LinkedIn profile public and detailed?",
+    'passwordReuse': "Do you reuse passwords across multiple important websites (email, banking, social media)?",
+    'usePasswordManager': "Do you use a password manager to generate and store unique, strong passwords?",
+    'mfaEnabled': "Is Two-Factor Authentication (2FA/MFA) enabled on your critical accounts (email, social media, banking)?",
+    'breachedEmailCheck': "Have your primary email addresses appeared in known data breaches (e.g., checked via HaveIBeenPwned)?",
+    'vpnUsage': "Do you regularly use a VPN (Virtual Private Network) for privacy, especially on public Wi-Fi?",
+    'dataBrokerListing': "Have you found your personal information on data broker or people-search websites?",
+    'photoMetadataScrubbed': "Do you typically remove location data (EXIF) from photos before sharing them publicly?",
+    'publicWhois': "Do you own any domain names with public WHOIS records that list your personal details?",
     // Analyze Page
     'analyze.title': "Risk Overview",
     'analyze.overall': "Overall Exposure Level",
@@ -93,6 +110,10 @@ export const translations = {
     'Harassment / Reputation': 'Harassment / Reputation',
     'Fraud / Identity Theft': 'Fraud / Identity Theft',
     'Physical Security': 'Physical Security',
+    'Data Breach Exposure': 'Data Breach Exposure',
+    'Metadata Leakage': 'Metadata Leakage',
+    'Advertising & Tracking': 'Advertising & Tracking',
+    'Legal & Registry Exposure': 'Legal & Registry Exposure',
     // Risk Levels
     'Low': 'Low',
     'Medium': 'Medium',
@@ -110,6 +131,14 @@ export const translations = {
     // Keep Safe Page
     "keepsake.title": "Stay Safe: Long-Term Habits",
     "keepsake.intro": "Privacy isn't a one-time fix. It's a practice. Here are some habits to maintain your digital hygiene.",
+    "keepsake.habit1": "Use a password manager",
+    "keepsake.habit2": "Enable 2FA on all key accounts",
+    "keepsake.habit3": "Review your public profiles monthly",
+    "keepsake.habit4": "Think before posting kids’ faces / locations",
+    "keepsake.habit5": "Monitor your credit report",
+    "keepsake.habit6": "Review app privacy settings quarterly",
+    "keepsake.habit7": "Use privacy-focused search engines",
+    "keepsake.habit8": "Set up alerts for mentions of your name",
     "keepsake.nextCheckup": "Schedule Your Next Check-Up",
     "keepsake.nextCheckupDesc": "No notifications will be sent. This is just for your own records. Re-run this audit periodically.",
     // Reports Page
@@ -186,6 +215,16 @@ export const translations = {
     'audit.answer.no': 'לא',
     'audit.answer.not_sure': 'לא בטוח',
     'audit.context.title': "למה זה חשוב",
+    // Audit Sections
+    'Identity & Contact': 'זהות ויצירת קשר',
+    'Location & Home': 'מיקום ובית',
+    'Work & Education': 'עבודה והשכלה',
+    'Social & Relationships': 'חברה ומערכות יחסים',
+    'Photos & Media': 'תמונות ומדיה',
+    'Habits & Patterns': 'הרגלים ודפוסים',
+    'Platform Checks': 'בדיקות פלטפורמה',
+    'Security Practices': 'נוהלי אבטחה',
+    'Advanced Footprint': 'טביעת רגל מתקדמת',
     // Audit Questions
     'fullNamePublic': "האם שמך המלא והחוקי נמצא בקלות ברשתות חברתיות ציבוריות?",
     'emailPublic': "האם כתובת אימייל אישית גלויה בפרופיל או אתר כלשהו?",
@@ -211,6 +250,14 @@ export const translations = {
     'tiktokProfilePublic': "האם פרופיל הטיקטוק שלך ציבורי?",
     'xProfilePublic': "האם פרופיל ה-X (טוויטר) שלך ציבורי?",
     'linkedinProfilePublic': "האם פרופיל הלינקדאין שלך ציבורי ומפורט?",
+    'passwordReuse': "האם אתה משתמש בסיסמאות חוזרות במספר אתרים חשובים (אימייל, בנקאות, רשתות חברתיות)?",
+    'usePasswordManager': "האם אתה משתמש במנהל סיסמאות כדי ליצור ולאחסן סיסמאות ייחודיות וחזקות?",
+    'mfaEnabled': "האם אימות דו-שלבי (2FA/MFA) מופעל בחשבונותיך הקריטיים (אימייל, רשתות חברתיות, בנקאות)?",
+    'breachedEmailCheck': "האם כתובות האימייל העיקריות שלך הופיעו בדליפות מידע ידועות (למשל, נבדקו באמצעות HaveIBeenPwned)?",
+    'vpnUsage': "האם אתה משתמש באופן קבוע ב-VPN (רשת פרטית וירטואלית) לפרטיות, במיוחד ב-Wi-Fi ציבורי?",
+    'dataBrokerListing': "האם מצאת את המידע האישי שלך באתרי מתווכי נתונים או חיפוש אנשים?",
+    'photoMetadataScrubbed': "האם אתה נוהג להסיר נתוני מיקום (EXIF) מתמונות לפני שיתופן באופן ציבורי?",
+    'publicWhois': "האם בבעלותך שמות דומיין עם רשומות WHOIS ציבוריות המפרטות את פרטיך האישיים?",
     // Analyze Page
     'analyze.title': "סקירת סיכונים",
     'analyze.overall': "רמת חשיפה כללית",
@@ -228,6 +275,10 @@ export const translations = {
     'Harassment / Reputation': 'הטרדה / פגיעה במוניטין',
     'Fraud / Identity Theft': 'הונאה / גניבת זהות',
     'Physical Security': 'ביטחון פיזי',
+    'Data Breach Exposure': 'חשיפה בדליפות מידע',
+    'Metadata Leakage': 'דליפת מטא-נתונים',
+    'Advertising & Tracking': 'פרסום ומעקב',
+    'Legal & Registry Exposure': 'חשיפה משפטית ורישומית',
     // Risk Levels
     'Low': 'נמוך',
     'Medium': 'בינוני',
@@ -245,6 +296,14 @@ export const translations = {
     // Keep Safe Page
     "keepsake.title": "הישאר בטוח: הרגלים לטווח ארוך",
     "keepsake.intro": "פרטיות אינה תיקון חד פעמי. זהו תרגול. הנה כמה הרגלים לשמירה על היגיינה דיגיטלית.",
+    "keepsake.habit1": "השתמש במנהל סיסמאות",
+    "keepsake.habit2": "הפעל אימות דו-שלבי בכל החשבונות המרכזיים",
+    "keepsake.habit3": "בדוק את הפרופילים הציבוריים שלך מדי חודש",
+    "keepsake.habit4": "חשוב לפני שאתה מפרסם תמונות של ילדים / מיקומים",
+    "keepsake.habit5": "עקוב אחר דוח האשראי שלך",
+    "keepsake.habit6": "בדוק הגדרות פרטיות באפליקציות מדי רבעון",
+    "keepsake.habit7": "השתמש במנועי חיפוש המכבדים פרטיות",
+    "keepsake.habit8": "הגדר התראות על אזכורים של שמך",
     "keepsake.nextCheckup": "קבע את הבדיקה הבאה שלך",
     "keepsake.nextCheckupDesc": "לא יישלחו התראות. זה רק לתיעוד שלך. בצע את הביקורת הזו מעת לעת.",
     // Reports Page
@@ -271,4 +330,3 @@ export const translations = {
     "settings.limitations.item2": "זה עוזר לך לחשוב כמו תוקף כדי למצוא מידע ציבורי. אתה שולט בפעולותיך."
   }
 };
-   

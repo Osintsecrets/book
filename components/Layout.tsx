@@ -61,8 +61,8 @@ const Header: React.FC = () => {
           </div>
           <div className="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
              <div className="flex items-center bg-gray-800/50 rounded-full p-1 text-sm">
-                <button onClick={() => setLanguage('en')} className={`px-3 py-1 rounded-full ${state.language === 'en' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`}>EN</button>
-                <button onClick={() => setLanguage('he')} className={`px-3 py-1 rounded-full ${state.language === 'he' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`}>HE</button>
+                <button onClick={() => setLanguage('en')} className={`px-3 py-1 rounded-full ${state.language === 'en' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`} aria-label="Switch to English">EN</button>
+                <button onClick={() => setLanguage('he')} className={`px-3 py-1 rounded-full ${state.language === 'he' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`} aria-label="Switch to Hebrew">HE</button>
             </div>
           </div>
           <div className="me-2 flex md:hidden">
@@ -101,8 +101,8 @@ const Header: React.FC = () => {
               ))}
                 <div className="flex justify-center pt-4">
                      <div className="flex items-center bg-gray-800/50 rounded-full p-1 text-sm">
-                        <button onClick={() => setLanguage('en')} className={`px-3 py-1 rounded-full ${state.language === 'en' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`}>EN</button>
-                        <button onClick={() => setLanguage('he')} className={`px-3 py-1 rounded-full ${state.language === 'he' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`}>HE</button>
+                        <button onClick={() => setLanguage('en')} className={`px-3 py-1 rounded-full ${state.language === 'en' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`} aria-label="Switch to English">EN</button>
+                        <button onClick={() => setLanguage('he')} className={`px-3 py-1 rounded-full ${state.language === 'he' ? 'bg-cyan-500 text-white' : 'text-gray-300'}`} aria-label="Switch to Hebrew">HE</button>
                     </div>
                 </div>
             </div>
@@ -114,4 +114,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-   

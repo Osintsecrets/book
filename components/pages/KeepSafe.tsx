@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { translations } from '../../utils/translations';
@@ -21,10 +20,14 @@ const KeepSafe: React.FC = () => {
     const t = translations[state.language];
 
     const habits = [
-        "Use a password manager",
-        "Enable 2FA on key accounts",
-        "Review your public profiles monthly",
-        "Think before posting kids’ faces / locations"
+        t['keepsake.habit1'],
+        t['keepsake.habit2'],
+        t['keepsake.habit3'],
+        t['keepsake.habit4'],
+        t['keepsake.habit5'],
+        t['keepsake.habit6'],
+        t['keepsake.habit7'],
+        t['keepsake.habit8'],
     ];
 
     const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,4 +68,3 @@ const KeepSafe: React.FC = () => {
 };
 
 export default KeepSafe;
-   

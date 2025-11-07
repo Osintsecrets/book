@@ -33,7 +33,7 @@ const DetailsModal: React.FC<{ category: RiskCategory; onClose: () => void }> = 
                 <div className="p-6">
                     <div className="flex justify-between items-start">
                         <h2 className="text-2xl font-bold mb-4 text-cyan-400">{t['analyze.findings'].replace('{category}', t[category])}</h2>
-                        <button onClick={onClose} className="p-1 rounded-full hover:bg-gray-700 transition-colors">
+                        <button onClick={onClose} className="p-1 rounded-full hover:bg-gray-700 transition-colors" aria-label={t['analyze.close']}>
                             <XIcon className="w-6 h-6 text-gray-400"/>
                         </button>
                     </div>
@@ -138,4 +138,3 @@ const Analyze: React.FC = () => {
 };
 
 export default Analyze;
-   
