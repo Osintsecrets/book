@@ -1,0 +1,5 @@
+{
+  "name": "Privacy Self-Audit",
+  "description": "An OSINT-mindset tool to help you audit your digital footprint, privately, on your own device. Map what's public, see what they see, and decide what stays.",
+  "requestFramePermissions": []
+}
