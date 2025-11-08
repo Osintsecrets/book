@@ -1,47 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Privacy Self-Audit
 
-# Run and deploy your AI Studio app
+A private-by-design progressive web application that helps you map, analyse, and reduce your public digital footprint entirely on your own device. Built with React, TypeScript, Tailwind CSS, and Vite. All data lives in the browser via localStorage—no accounts, servers, or tracking.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1F4Ee4pTpqO0UHktwNsgGVT3aoffGXBgP
+- 🔐 **Local-first:** Answers, risk scores, and mitigation progress never leave your browser.
+- 🧭 **Guided audit wizard:** Step-by-step questions covering identity, location, work, relationships, media, habits, and platform exposure.
+- 📊 **Risk intelligence:** Deterministic client-side rules translate your answers into category scores and triggers.
+- 🛡️ **Mitigation playbook:** Personalised suggestions mapped to risk categories with completion tracking.
+- 📆 **Long-term safety:** Habit reminders and optional local self-check date.
+- 📄 **Offline-ready reports:** Generate Markdown or JSON summaries for export without uploading anything.
+- 🌍 **Bilingual UI:** English and Hebrew (RTL) interface with one-tap language toggle.
+- 📱 **Installable PWA:** Works offline after first load and can be installed to desktop or mobile.
 
-## Run Locally
+## Getting started
 
-**Prerequisites:**  Node.js
+### Prerequisites
+- [Node.js](https://nodejs.org/) 18 or newer
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-
-## Deploy to GitHub Pages
-
-This project is configured to build as a static site that can be served from any sub-path, which makes it compatible with GitHub Pages.
-
-1. Build the production bundle:
-   `npm run build`
-2. Deploy the contents of the generated `dist` directory to the `gh-pages` branch (or use the included GitHub Actions workflow).
-
-### Automated deploys
-
-The repo includes a [`Deploy to GitHub Pages`](.github/workflows/deploy.yml) workflow. On every push to `main` it:
-
-1. Installs dependencies
-2. Builds the static site with `VITE_BASE_URL` set to the repository name so asset URLs resolve correctly on `https://<user>.github.io/<repo>/`
-3. Publishes the entire `dist/` directory (including the hashed asset bundles) to GitHub Pages
-
-You can trigger the workflow manually from the **Actions** tab as well. This ensures that the hashed bundles inside `dist/assets/` are always deployed along with `index.html`, preventing the blank page you get if only the HTML file is uploaded.
-
-If you need to override the default asset base path (for example when hosting behind a custom reverse proxy), set `VITE_BASE_URL` before running the build:
-2. Deploy the contents of the generated `dist` directory to the `gh-pages` branch (or use GitHub Actions).
-
-If you need to override the default relative asset paths (for example when hosting behind a custom reverse proxy), set `VITE_BASE_URL` before running the build:
-
+### Install dependencies
 ```bash
-VITE_BASE_URL=/custom-base/ npm run build
+npm install
 ```
+
+> ℹ️ If installing packages is blocked in your environment, you can still review the source. Run the command once you have registry access.
+
+### Run the development server
+```bash
+npm run dev
+```
+The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+### Build for production
+```bash
+npm run build
+```
+Outputs a static bundle in the `dist/` folder that can be served from any static hosting provider.
+
+### Preview the production build
+```bash
+npm run preview
+```
+
+## PWA notes
+- `public/manifest.webmanifest` defines the install experience and icons.
+- `public/sw.js` implements a cache-first service worker suitable for static hosting.
+- The app registers the service worker in `src/main.tsx` after the window load event.
+
+## Local storage keys
+- `psa_locale`
+- `psa_theme`
+- `psa_answers`
+- `psa_wizard_step`
+- `psa_reduce_progress`
+- `psa_next_check`
+
+Deleting data from **Settings & Trust** clears every key above.
+
+## License
+This project is provided as-is without any additional license terms beyond those already present in the repository.

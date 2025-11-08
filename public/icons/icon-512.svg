@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="url(#bg)" />
+  <g filter="url(#glow)">
+    <path d="M256 144c-58.976 0-107 48.024-107 107v53a53 53 0 0 0 32 48.784V392c0 14.912 12.088 27 27 27h96c14.912 0 27-12.088 27-27v-39.216A53 53 0 0 0 363 304v-53c0-58.976-48.024-107-107-107zm0 43c35.898 0 65 29.102 65 65v46.222A97.5 97.5 0 0 0 256 277c-24.812 0-47.49 9.4-65 25.222V252c0-35.898 29.102-65 65-65z" fill="url(#accent)" />
+    <circle cx="256" cy="332" r="32" fill="#f8fafc" />
+  </g>
+</svg>

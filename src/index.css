@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', 'Rubik', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #030712;
+}
+
+body {
+  @apply bg-midnight text-gray-100;
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-glow;
+}
+
+.neon-button {
+  @apply relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300;
+}
+
+.neon-button.primary {
+  @apply bg-violet/80 text-white shadow-[0_0_25px_rgba(127,90,240,0.4)];
+}
+
+.neon-button.primary::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(127,90,240,0.9), rgba(0,245,255,0.6));
+  opacity: 0.7;
+  filter: blur(8px);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.neon-button.primary:hover::after {
+  opacity: 1;
+}
+
+.neon-button.secondary {
+  @apply border border-cyan-400/50 text-cyan-200 hover:text-white hover:border-cyan-300/80;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-glow;
+}
+
+.light body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.light .glass-panel {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+
+.light .glass-panel p,
+.light .glass-panel span,
+.light .glass-panel li,
+.light .glass-panel h2,
+.light .glass-panel h3,
+.light .glass-panel h4 {
+  color: #1f2937;
+}
+
+.light .neon-button.primary {
+  background: linear-gradient(120deg, rgba(127, 90, 240, 0.9), rgba(56, 189, 248, 0.85));
+  color: #0f172a;
+}
+
+.light .neon-button.secondary {
+  border-color: rgba(14, 116, 144, 0.4);
+  color: #0f172a;
+}

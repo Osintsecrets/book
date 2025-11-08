@@ -1,86 +1,55 @@
-const CACHE_NAME = 'privacy-self-audit-v2';
 const CACHE_NAME = 'privacy-self-audit-v1';
-
-const getBasePath = () => {
-  const scopePath = self.location.pathname.replace(/[^/]+$/, '');
-  return scopePath.endsWith('/') ? scopePath : `${scopePath}/`;
-};
-
-const BASE_PATH = getBasePath();
-
-const urlsToCache = [
-  `${BASE_PATH}`,
-  `${BASE_PATH}index.html`,
-  `${BASE_PATH}manifest.webmanifest`,
+const PRECACHE_URLS = [
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png'
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting())
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting())
   );
 });
 
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(
-        cacheNames
-          .filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      )
-    ).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      .then(() => self.clients.claim())
   );
 });
 
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') {
-    return;
-  }
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
 
-  const requestURL = new URL(event.request.url);
-  if (requestURL.origin !== self.location.origin) {
-    return;
-  }
+  const { request } = event;
+  const url = new URL(request.url);
 
-  if (event.request.mode === 'navigate') {
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .then(response => {
+      fetch(request)
+        .then((response) => {
           const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(`${BASE_PATH}index.html`, copy));
+          caches.open(CACHE_NAME).then((cache) => cache.put('/index.html', copy));
           return response;
         })
-        .catch(() => caches.match(`${BASE_PATH}index.html`))
+        .catch(() => caches.match('/index.html'))
     );
     return;
   }
 
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
         return response;
-      }
-
-      return fetch(event.request)
-        .then(networkResponse => {
-          const copy = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-          return networkResponse;
-        })
-        .catch(error => {
-          if (event.request.destination === 'document') {
-            return caches.match(`${BASE_PATH}index.html`);
-          }
-          throw error;
-        });
-      return fetch(event.request).catch(error => {
-        if (event.request.mode === 'navigate') {
-          return caches.match(`${BASE_PATH}index.html`);
-        }
-        throw error;
       });
     })
   );
