@@ -1,4 +1,5 @@
 const CACHE_NAME = 'privacy-self-audit-v2';
+const CACHE_NAME = 'privacy-self-audit-v1';
 
 const getBasePath = () => {
   const scopePath = self.location.pathname.replace(/[^/]+$/, '');
@@ -18,6 +19,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
       .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)).then(() => self.skipWaiting())
   );
 });
 
@@ -74,6 +76,12 @@ self.addEventListener('fetch', event => {
           }
           throw error;
         });
+      return fetch(event.request).catch(error => {
+        if (event.request.mode === 'navigate') {
+          return caches.match(`${BASE_PATH}index.html`);
+        }
+        throw error;
+      });
     })
   );
 });

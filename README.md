@@ -38,6 +38,9 @@ The repo includes a [`Deploy to GitHub Pages`](.github/workflows/deploy.yml) wor
 You can trigger the workflow manually from the **Actions** tab as well. This ensures that the hashed bundles inside `dist/assets/` are always deployed along with `index.html`, preventing the blank page you get if only the HTML file is uploaded.
 
 If you need to override the default asset base path (for example when hosting behind a custom reverse proxy), set `VITE_BASE_URL` before running the build:
+2. Deploy the contents of the generated `dist` directory to the `gh-pages` branch (or use GitHub Actions).
+
+If you need to override the default relative asset paths (for example when hosting behind a custom reverse proxy), set `VITE_BASE_URL` before running the build:
 
 ```bash
 VITE_BASE_URL=/custom-base/ npm run build
